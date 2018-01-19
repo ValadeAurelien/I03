@@ -2,5 +2,5 @@
 ~*
 *~
 !*/*/build/*.sh
-*/*/build/*
+*/*/build/
 */.gitignore
