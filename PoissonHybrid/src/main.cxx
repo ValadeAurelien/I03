@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
   int itMax = Prm.itmax();
   
 #if defined(_OPENMP)
-    omp_set_num_threads(P.nthreads());
+    omp_set_num_threads(Prm.nthreads());
 #endif
     
   int nsteps = freq > 0 ? itMax/freq : 1;
