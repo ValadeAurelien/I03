@@ -1,3 +1,7 @@
+#if defined(_OPENMP)
+#include <omp.h>
+#endif
+
 #include "parameters.hxx"
 #include "scheme.hxx"
 
@@ -22,7 +26,11 @@ int main(int argc, char *argv[])
   int freq = Prm.freq();
   bool output = freq > 0;
   int itMax = Prm.itmax();
-
+  
+#if defined(_OPENMP)
+    omp_set_num_threads(P.nthreads());
+#endif
+    
   int nsteps = freq > 0 ? itMax/freq : 1;
   int ksteps = freq > 0 ? freq : itMax;
 
